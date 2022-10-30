@@ -1,9 +1,5 @@
 # Topic analysis
 
-## Initial thoughts
-
-For the initial model exploration, I have trained two different models to compare.
-
 ## LDA
 
 ### Benefits
