@@ -15,7 +15,7 @@ For the initial model exploration, I have trained two different models to compar
 
 This model needed preprocessing in order to work. For this, I used the open source library spacy and nltk. I removed stopwords, punctuations, numbers, special characters and lemmatized all words. Additionally, I removed contractions such as "I'm" -> "I am"
 
-
+![](images/wordcloud.png)
 
 ### Training
 
@@ -26,6 +26,8 @@ For the training process, I used the LdaMulticore model from gensim. The trainin
 To visualize the results, I used the open source library "pyLDAvis". The interactive version of the visualisation can be viewed at "./results/ldavis_prepared_4.html". 
 
 But the resulting topics were underwhelming and at no point meaningful. This is probably caused by the lack of data. There was a general overrepresentation of broad words like "quarter" and "think" in all topics.
+
+![](images/LDA.png)
 
 ## Top2Vec
 
@@ -43,15 +45,15 @@ The Top2Vec model includes all preprocessing, so there is no need to do it yours
 
 Training the Top2Vec model is as simple as writing one line. For better performance, I used a pretrained sentence encoder.
 
-![](C:\Users\morie\AppData\Roaming\marktext\images\2022-10-30-11-34-20-image.png)
+![](images/Top2Vec.png)
 
 ### Results
 
 The results of the Top2Vec model were a lot closer to what I have expected. There was a clear seperation of the documents by topic (4 found by the model -> represents the 4 companies). 
 
-![](C:\Users\morie\AppData\Roaming\marktext\images\2022-10-30-11-40-57-image.png)
+![](images/topic_2.png)
 
-![](C:\Users\morie\AppData\Roaming\marktext\images\2022-10-30-11-41-13-image.png)
+![](images/topic_3.png)
 
 ## Credits
 
