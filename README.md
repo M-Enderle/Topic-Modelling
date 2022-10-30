@@ -51,6 +51,10 @@ The results of the Top2Vec model were a lot closer to what I have expected. Ther
 
 ![](images/topic_3.png)
 
+## Final thoughts
+
+As Top2Vec performed better than LDA, I would suggest further developing the Top2Vec based approach. Both do suffer from missing data. The next step to improve the model, would be to increase the corpus.
+
 ## Credits
 
 All code was developed by Moritz Enderle.
