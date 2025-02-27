@@ -1,60 +1,65 @@
-# Topic analysis
+# ✨ Topic Analysis Adventure ✨
 
-## LDA
+Welcome to my exciting journey through topic modeling with **LDA** and **Top2Vec**! I’ve explored these two powerhouse tools to unearth hidden themes in text data, and I’m thrilled to share the ups, downs, and discoveries along the way. Buckle up—let’s dive in! 🌊
 
-### Benefits
+---
 
-- one document can have multiple topics
-- performs better on smaller datasets
+## 🧠 LDA (Latent Dirichlet Allocation)
 
-### Preprocessing
+### 🎉 Why It’s Awesome
+- **Multi-Topic Magic**: A single document can wear multiple topic hats—great for messy, real-world texts! 🌟
+- **Small Data Superstar**: Performs like a champ even with smaller datasets. 📊
 
-This model needed preprocessing in order to work. For this, I used the open source library spacy and nltk. I removed stopwords, punctuations, numbers, special characters and lemmatized all words. Additionally, I removed contractions such as "I'm" -> "I am"
+### 🛠️ Preprocessing Prep
+To get LDA ready to roll, I whipped the data into shape using the open-source wizards **spaCy** and **NLTK**. Here’s what I did:
+- 🚫 Kicked out **stopwords**, **punctuation**, **numbers**, and **special characters**.
+- ✂️ Transformed words into their root forms with **lemmatization** (e.g., "running" → "run").
+- 🔧 Expanded contractions like "I'm" → "I am" for consistency.
 
-![](images/wordcloud.png)
+Check out the cool **word cloud** I generated to peek at the cleaned-up data!  
+![Word Cloud](images/wordcloud.png)
 
-### Training
+### ⚡ Training Time
+I fired up the **LdaMulticore** model from **gensim** for this mission. It’s lightning-fast ⚡, but you’ve got to tell it how many topics to hunt for upfront. I tweaked and tuned it to see what stuck!
 
-For the training process, I used the LdaMulticore model from gensim. The training process is very fast, but needed a specified amount of topics to find.
+### 📈 Results Reveal
+To bring the results to life, I used **pyLDAvis**—an open-source gem that creates interactive visualizations. Want to explore the full interactive version? Check it out here: `./results/ldavis_prepared_4.html`.
 
-### Results
+But here’s the tea ☕: The topics were… underwhelming. They lacked that “aha!” moment. Broad words like "quarter" and "think" hogged the spotlight across all topics, probably because the dataset was too skimpy. More data, please!  
+![LDA Visualization](images/LDA.png)
 
-To visualize the results, I used the open source library "pyLDAvis". The interactive version of the visualisation can be viewed at "./results/ldavis_prepared_4.html". 
+---
 
-But the resulting topics were underwhelming and at no point meaningful. This is probably caused by the lack of data. There was a general overrepresentation of broad words like "quarter" and "think" in all topics.
+## 🌌 Top2Vec: The Next Frontier
 
-![](images/LDA.png)
+### 🎉 Why It Rocks
+- **Embedding Power**: Uses fancy word embeddings for a deeper grasp of meaning. 🧬
+- **Content Whisperer**: Gets the vibe of your documents like a pro. 🎯
 
-## Top2Vec
+### 🛠️ Preprocessing? Nope!
+Top2Vec is the low-maintenance friend we all need—it handles **all preprocessing** internally. No manual scrubbing required. Just toss in your raw text and let it work its magic! ✨
 
-### Benefits
+### ⚡ Training Made Simple
+Training Top2Vec is a breeze—just one line of code! For an extra boost, I plugged in a **pretrained sentence encoder** (shoutout to the GitHub repo’s sleek implementation!). It’s fast, efficient, and oh-so-satisfying.  
+![Top2Vec Training](images/Top2Vec.png)
 
-- Embedding based
+### 📈 Results That Wow
+Top2Vec delivered the goods! It sniffed out **4 distinct topics**, neatly tied to the 4 companies in my dataset (nailed it!). The separation was crisp, and the topics actually made sense—way more than LDA managed here.  
+Peek at these beauties:  
+![Topic 2](images/topic_2.png)  
+![Topic 3](images/topic_3.png)
 
-- Deeper understanding of content
+---
 
-### Preprocessing
+## 💭 Final Thoughts
+**Top2Vec** stole the show with its slick performance and meaningful results, leaving LDA in the dust this time. But let’s be real—both models were starving for more data. My next move? Feed them a bigger corpus to unlock their full potential! 🍽️  
+For future adventures, I’d double down on the Top2Vec approach—it’s got the edge I’m looking for. 🚀
 
-The Top2Vec model includes all preprocessing, so there is no need to do it yourself.
+---
 
-### Training
+## 🎖️ Credits
+All the code-fu in this project comes from yours truly, **Moritz Enderle**. Want to see the magic behind the curtain? Check out the full codebase on GitHub: [M-Enderle/Topic-Modelling](https://github.com/M-Enderle/Topic-Modelling/). Big thanks to the open-source community for the tools that made this possible! 🙌
 
-Training the Top2Vec model is as simple as writing one line. For better performance, I used a pretrained sentence encoder.
+---
 
-![](images/Top2Vec.png)
-
-### Results
-
-The results of the Top2Vec model were a lot closer to what I have expected. There was a clear seperation of the documents by topic (4 found by the model -> represents the 4 companies). 
-
-![](images/topic_2.png)
-
-![](images/topic_3.png)
-
-## Final thoughts
-
-As Top2Vec performed better than LDA, I would suggest further developing the Top2Vec based approach. Both do suffer from missing data. The next step to improve the model, would be to increase the corpus.
-
-## Credits
-
-All code was developed by Moritz Enderle.
+What do you think? Ready to explore topic modeling with me? Let’s chat! 💬
